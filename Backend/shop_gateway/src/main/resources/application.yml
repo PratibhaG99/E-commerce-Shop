@@ -1,0 +1,32 @@
+server:
+  port: 8999
+  
+eureka:
+  instance:
+    hostname: localhost
+    
+spring:
+  application:
+    name: shop-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: shop-service
+          uri: lb://shop-service
+          predicates:
+          - Path=/shop/**
+        - id: report-service
+          uri: lb://report-service
+          predicates:
+          - Path=/order/**
+        - id: discount-service
+          uri: lb://discount-service
+          predicates:
+          - Path=/discount/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            

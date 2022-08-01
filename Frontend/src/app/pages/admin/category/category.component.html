@@ -1,0 +1,30 @@
+<mat-card>
+    <h1>All Product Categories</h1>
+    <form (ngSubmit)="add()">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Product Category name</mat-label>
+            <input 
+            [(ngModel)]="addData.categoryname"
+            name="categoryname"
+            matInput placeholder="Enter Category Name" required>
+        </mat-form-field>
+        <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary">Add Category</button>
+        </div>
+    </form><br>
+    <div class="text-center">
+        <button (click)="show()" mat-raised-button color="warn">Show All Categories</button>
+    </div> 
+     <mat-list>
+        <mat-list-item *ngFor="let c of categories">
+            <mat-icon mat-list-icon>category</mat-icon>
+           
+                <div mat-line>{{c.cid}}</div>
+                <div mat-line>{{c.categoryname}}</div>
+                <div class="text-center">
+                    <button (click)="delete(c.categoryname)" mat-raised-button color="warn">Delete</button>
+                </div>
+            <mat-divider><</mat-divider>
+        </mat-list-item>
+    </mat-list>
+</mat-card>

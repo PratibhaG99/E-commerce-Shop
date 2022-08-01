@@ -1,0 +1,22 @@
+<mat-card>
+    <h1>MAIL FOR STOCK</h1>
+    <form (ngSubmit)="send()">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>To</mat-label>
+            <input
+            matInput placeholder="To" required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input
+            matInput placeholder="Subject" required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Meesage</mat-label>
+            <textarea matInput placeholder="Meaasge"></textarea>
+        </mat-form-field>
+        <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary">SEND</button>
+        </div>
+    </form><br>
+</mat-card>

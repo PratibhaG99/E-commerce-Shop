@@ -1,0 +1,22 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <marquee scrollamount=12> 
+              <img src="../../../assets/logo.jpg" alt=""/>
+            <h1>WECOME TO HOME PAGE</h1>
+          </marquee>
+        <h2 align="center" style="color: rgb(10, 199, 10);"><b>SHOP FOR HOME</b> is a one stop solution for 
+          all your Home Decor needs. Get the customized home setup with 
+          all your need delivered to your home!!!</h2>
+
+      <div class="row" style="margin-top: 20px" *ngIf="products">
+        <div class="col-md-4" *ngFor="let p of products">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{p.productname}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image style="max-height:200px" [src]="p.image" alt="Product Image">
+          </mat-card><br>
+        </div>
+    </div>
+  </div>
+

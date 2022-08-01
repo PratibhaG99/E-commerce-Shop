@@ -1,0 +1,33 @@
+<mat-card>
+    <h1>Add Product</h1>
+    <a 
+    routerLink="/admin/category"
+    style="margin-right: 20px;"  mat-raised-button color="primary">
+        Goto Categories
+    </a><br>
+    <br><br>
+    <input type="file" (change)="onFileUpload($event)" multiple="false" />
+    <div class="container text-center">
+        <button (click)="add()" mat-raised-button color="primary">Add Product</button>
+    </div><br>
+    
+    <br>
+    <div class="text-center">
+        <button (click)="show()" mat-raised-button color="warn">Show All Products</button>
+    </div>
+    <mat-list>
+        <mat-list-item *ngFor="let p of products">
+            <!-- <mat-icon mat-list-icon>category</mat-icon> -->
+           <div mat-line><img [src]="p.image" height="100px" width="100px "/></div> 
+            <!-- <form (ngSubmit)="delete()"> -->
+                <div mat-line>{{p.productname}}</div>
+                <div mat-line>{{p.price}}</div>
+                <div mat-line>{{p.description}}</div>
+                <div class="text-center">
+                    <button mat-raised-button color="warn">Delete</button>
+                </div>
+            <!-- </form> -->
+            <mat-divider><</mat-divider>
+        </mat-list-item>
+    </mat-list>
+</mat-card>

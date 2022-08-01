@@ -1,0 +1,34 @@
+<mat-card>
+    <h1>DISCOUNTS</h1>
+    <form (ngSubmit)="add()">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Disount Name</mat-label>
+            <input 
+            [(ngModel)]="addDiscount.couponname"
+            name="couponname"
+            matInput placeholder="Enter Discount Name" required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Disount Percentage</mat-label>
+            <input 
+            [(ngModel)]="addDiscount.percentage"
+            name="percentage"
+            matInput placeholder="Enter Percentage" required>
+        </mat-form-field>
+        <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary">Add Discount</button>
+        </div>
+    </form><br>
+    <div class="text-center">
+        <button (click)="show()" mat-raised-button color="warn">Show All Discounts</button>
+    </div> 
+     <mat-list>
+        <mat-list-item *ngFor="let c of coupons">
+            <mat-icon mat-list-icon>category</mat-icon>
+           
+                <div mat-line>Discount Coupon Name: {{c.couponname}}</div>
+                <div mat-line>Discount Percentage: {{c.percentage}} %</div>
+            <mat-divider><</mat-divider>
+        </mat-list-item>
+    </mat-list>
+</mat-card>

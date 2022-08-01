@@ -1,0 +1,42 @@
+<mat-toolbar color="warn">
+    <a 
+    routerLink="/"
+    mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>store</mat-icon>
+    </a>
+    <span> ShopForHome</span>
+    <span class="example-spacer"></span>
+    <!-- <a 
+    *ngIf="login.isLoggedIn()"
+    routerLink="/login"
+    style="margin-right:100px;" mat-icon-button>
+     Welcome: {{login.getUser().username}}
+    </a> -->
+    <button 
+    *ngIf="login.isLoggedIn()"
+    class="example-icon favourite-icon"
+    mat-button>
+     Welcome:  {{login.getUser().username}}
+    </button>
+
+    <a 
+    *ngIf="!login.isLoggedIn()"
+    routerLink="/login"
+    style="margin-right: 30px;" mat-icon-button>
+     Login
+    </a>
+    <a 
+    *ngIf="!login.isLoggedIn()"
+    routerLink="/register"
+    style="margin-right: 20px;" mat-icon-button>
+        Register
+    </a>
+    <a 
+    (click)="logout()"
+    *ngIf="login.isLoggedIn()"
+    style="margin-right: 20px;" mat-icon-button>
+        Logout
+        <mat-icon>logout</mat-icon>
+    </a>
+  </mat-toolbar>
+

@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-action-list>
+        <button mat-list-item [routerLink]="'/user-dashboard/'+0">
+            <mat-icon mat-list-icon>check_circle</mat-icon>Home</button>
+        <button mat-list-item routerLink="/user-dashboard">
+            <mat-icon mat-list-icon>check_circle</mat-icon>Profile</button>
+        <button mat-list-item routerLink="/user-dashboard/0/cart">
+            <mat-icon mat-list-icon>check_circle</mat-icon>Cart</button>
+        <button mat-list-item routerLink="/user-dashboard/0/wishlist">
+                <mat-icon mat-list-icon>check_circle</mat-icon>Wishlist</button>
+            <hr>
+
+            <div class="text-center">
+                <button (click)="show()" mat-raised-button color="warn">Shop By Categories</button>
+            </div>
+                <button [routerLink]="'/user-dashboard/'+c.cid" *ngFor="let c of categories"
+                mat-list-item routerLink="/admin/category">
+                <mat-icon>shopping_basket</mat-icon>{{c.categoryname}}</button>
+    </mat-action-list>
+</mat-card>

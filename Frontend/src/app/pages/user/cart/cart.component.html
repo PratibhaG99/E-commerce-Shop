@@ -1,0 +1,45 @@
+<mat-card>
+    <h1>YOUR CART ITEMS</h1>
+    <mat-list>
+        <mat-list-item *ngFor="let c of cart">
+            <div *ngIf="c.user.username==u" style="margin-right:400px">
+            <mat-icon mat-list-icon>shopping_cart</mat-icon>
+            <div mat-line><img align="left" height="80px" [src]="c.product.image"/></div>
+                <div mat-line>{{c.product.productname}}</div>
+                <div mat-line>{{c.product.price}}</div>
+                <div mat-line>{{c.product.description}}</div>
+            </div>
+            <div *ngIf="c.user.username==u" class="text-center">
+                <form (ngSubmit)="setCount(c.product.pid)">
+                    <mat-form-field  style="margin-right:20px" appearance="outline">
+                        <mat-label>Count</mat-label>
+                        <input min="1" type="number"
+                         [(ngModel)]="count"
+                         name="count"
+                         matInput placeholder="Enter Count" required>
+                    </mat-form-field>
+                    <button type="submit" mat-raised-button color="accent">SET</button><br>
+                </form>
+                    <button (click)="deleteFromCart(c.cartid)" mat-raised-button color="primary">
+                        REMOVE</button>
+            <mat-divider></mat-divider>
+        </div>
+    `</mat-list-item>
+    </mat-list><br>
+    <div class="text-center">
+        <form (ngSubmit)="setDiscount()">
+            <mat-form-field style="margin-right:20px" class="full-width" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input 
+                [(ngModel)]="coupon"
+                name="coupon"
+                matInput placeholder="Enter DIscount Coupon"
+                required>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="accent">APPLY</button><br>
+        </form>
+    </div>
+    <div class="text-center">
+        <button (click)="order()" mat-raised-button color="primary">BUY NOW</button>
+    </div>
+</mat-card>

@@ -1,0 +1,45 @@
+<mat-card *ngIf="userData">
+    <mat-card-content>
+        <!-- {{userData | json}} -->
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div align=center class="container">
+                    <div class="col-md-10 offset-md-1">
+                        <h1 style="margin-bottom: 50px">Your Profile Details: {{userData.firstName}} {{userData.lastName}}</h1>
+                        <table class="table">
+                            <tr>
+                                <td>Username</td>
+                                <td>{{userData.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>User ID</td>
+                                <td>{{userData.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{userData.firstName}} {{userData.lastName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{{userData.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>{{userData.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>{{userData.address}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <!-- <mat-card-actions class="text-center">
+        <button mat-raised-button color="primary">UPDATE</button>
+        <button mat-raised-button color="accent">DELETE</button>
+    </mat-card-actions> -->
+</mat-card>
+

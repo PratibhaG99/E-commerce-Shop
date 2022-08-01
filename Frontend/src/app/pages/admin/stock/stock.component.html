@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div align=center class="container">
+                    <div class="col-md-10 offset-md-1">
+                        <h1 style="margin-bottom: 50px">STOCK RECORD</h1>
+                        <table class="table">
+                            <tr class="heading">
+                                <td><h3><b>Product name</b></h3></td>
+                                <td><h3><b>Stock</b></h3></td>
+                                <td><h3><b>Action</b></h3></td>
+                            </tr>
+                            <tr *ngFor="let p of products">
+                                <td><div>{{p.productname}}</div></td>
+                                <td><div>{{p.stock}}</div></td>
+                                <td><div
+                                    *ngIf="p.stock<=10"
+                                    ><button (click)="mail(p.productname)" mat-raised-button color="primary">
+                                        MAIL</button></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+

@@ -1,0 +1,46 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <mat-card>
+            <h1>ORDER DETAILS</h1>
+            <form>
+                <!-- {{orderDetails | json}} -->
+                <br><br>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Buyer Name</mat-label>
+                    <input matInput placeholder="Buyer Name" [value]="orderDetails.buyername" disabled>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Buyer Email</mat-label>
+                    <input matInput placeholder="Buyer Email" [value]="orderDetails.buyeremail" disabled>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Buyer Contact Number</mat-label>
+                    <input matInput placeholder="Buyer Contact" [value]="orderDetails.buyerphone" disabled>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Buyer Address</mat-label>
+                    <input matInput placeholder="Buyer Address" [value]="orderDetails.buyeraddress" disabled>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Total Cost</mat-label>
+                    <input matInput placeholder="Total Cost" [value]="orderDetails.totalcost" disabled>
+                </mat-form-field>
+
+                <mat-radio-group aria-label="Select Payment Mode">
+                    <mat-label>Payment Mode :</mat-label>
+                    <mat-radio-button style="margin-left: 70px;"value="cash">CASH ON DELIVERY</mat-radio-button>
+                </mat-radio-group><br><br>
+
+                <mat-form-field class="full-width" *ngFor="let p of orderDetails.product" appearance="outline">
+                    <mat-label>Product Name </mat-label>
+                    <input matInput placeholder="Product Name" [value]="p.pname" disabled>
+                    <mat-label>and Count</mat-label>
+                    <input matInput placeholder="Count" [value]="p.count" disabled>
+                </mat-form-field>
+                <div class="container text-center">
+                    <button (click)="placeOrder()" mat-raised-button style="margin-right:20px" color="primary">CHECKOUT</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

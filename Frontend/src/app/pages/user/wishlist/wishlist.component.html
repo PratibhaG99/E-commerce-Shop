@@ -1,0 +1,21 @@
+<mat-card>
+    <h1>YOUR WISHLISTED ITEMS</h1>
+    <mat-list>
+        <mat-list-item *ngFor="let c of wishlist">
+            <div *ngIf="c.wuser.username==u" style="margin-right:500px">
+                <!-- <mat-icon mat-list-icon>shopping_cart</mat-icon> -->
+                <div mat-line><img align="left" height="80px" [src]="c.wproduct.image"/></div>
+                <div mat-line>{{c.wproduct.productname}}</div>
+                <div mat-line>{{c.wproduct.price}}</div>
+                <div mat-line>{{c.wproduct.description}}</div>
+            </div>
+            <div *ngIf="c.wuser.username==u">
+                <div class="text-center">
+                    <button (click)="moveToCart(c.wproduct, c.wuser, c.wid)" mat-raised-button color="primary">MOVE TO CART</button>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-list-item>
+    </mat-list><br>
+</mat-card>
+

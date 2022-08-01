@@ -1,0 +1,34 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 20px" *ngIf="products">
+            <div class="col-md-4" *ngFor="let p of products">
+              <!-- <form (ngSubmit)="addToCart(p)"> -->
+                <mat-card style="min-height:420px">
+                    <mat-card-header>
+                      <!-- <mat-card-title>{{p.category.categoryname}}</mat-card-title> -->
+                    </mat-card-header>
+                    <img mat-card-image style="max-height:200px" [src]="p.image" alt="Product Image">
+                    <mat-card-content>
+                       <h3 style="color:rgba(6, 6, 177, 0.781);">Product Name: {{p.productname}}<br>
+                        Price: Rs. {{p.price}}<br>
+                        Description: {{p.description}}
+                    </h3>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button (click)="addToWishlist(p)" mat-raised-button type=submit color="primary">WISHLIST</button>
+                      <button (click)="addToCart(p)" mat-raised-button type=submit color="primary">ADD TO CART</button>
+                    </mat-card-actions>
+                  </mat-card><br>
+                <!-- </form> -->
+            </div>
+
+            <div class="col-md-12" *ngIf="products.length==0">
+              <mat-card>
+                <mat-card-content>
+                  <h1>No Product Available for this category</h1>
+                </mat-card-content>
+              </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
